@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
+
 
 // total size of the struct or Node
 // int- 4 bytes ; pointer variable- 64bits or 8 bytes
@@ -206,6 +208,24 @@ int add_nodes_recursion(struct Node *p)
     return add_nodes_recursion(p->next) + p->data;
 }
 
+
+// finding a maximum element in a linked list
+
+int find_max_value(struct Node* p){
+    //  we can use a compiler constant for minimum value
+    // found in <limits.h> header file
+    int max;
+    max = INT_MIN;
+    while (p != NULL){
+        if (p->data > max){
+            max = p->data;
+        }
+        p = p->next;
+    }
+
+    return max;
+}
+
 int main()
 {
 
@@ -221,6 +241,7 @@ int main()
     display_recursive(head);
     printf("the number of nodes in the linked list are: %d \n", count_nodes(head));
     printf("the sum of data in nodes is: %d \n", add_nodes(head));
+    printf("the highest value in the node is: %d \n", find_max_value(head));
 
     return 0;
 }
