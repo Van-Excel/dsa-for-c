@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <limits.h>
 
-
 // total size of the struct or Node
 // int- 4 bytes ; pointer variable- 64bits or 8 bytes
 // total = 12 bytes for each node or struct you create
@@ -208,16 +207,18 @@ int add_nodes_recursion(struct Node *p)
     return add_nodes_recursion(p->next) + p->data;
 }
 
-
 // finding a maximum element in a linked list
 
-int find_max_value(struct Node* p){
+int find_max_value(struct Node *p)
+{
     //  we can use a compiler constant for minimum value
     // found in <limits.h> header file
     int max;
     max = INT_MIN;
-    while (p != NULL){
-        if (p->data > max){
+    while (p != NULL)
+    {
+        if (p->data > max)
+        {
             max = p->data;
         }
         p = p->next;
@@ -225,6 +226,42 @@ int find_max_value(struct Node* p){
 
     return max;
 }
+
+// finding max using recursive method
+int find_max_recursive(struct Node *p)
+{
+   
+    if (p == NULL)
+        return INT_MIN;
+    int max = find_max_recursive(p->next);
+    return (p->data > max)? p->data : max ;
+}
+
+
+//search in a linked list
+// Binary search is not suitable for a linked list
+// You always have to traverse the list from the first node so
+// you cannot access the node in the middle in constant time
+
+int search(struct Node* p, int key){
+    while (p != NULL){
+
+        if (p->data == key){
+            printf("\n");
+            printf("The key has been found \n");
+            return p->data;
+        }
+        
+        p = p-> next;
+
+    }
+    printf("Key not found\n");
+    return key;
+    
+    
+
+}
+
 
 int main()
 {
@@ -234,14 +271,17 @@ int main()
     // Node structure ( complex numbers)
     // create a node
     // access a node
+    // search in a linked list
 
-    int A[] = {3, 5, 7, 10, 15};
-    create_linked_list(A, 5);
+    int A[] = {3, 5, 7, 21, 10, 15, 18};
+    create_linked_list(A, 7);
     display_linked_list(head);
     display_recursive(head);
     printf("the number of nodes in the linked list are: %d \n", count_nodes(head));
     printf("the sum of data in nodes is: %d \n", add_nodes(head));
     printf("the highest value in the node is: %d \n", find_max_value(head));
+    printf("the highest value in the node using recursion is: %d \n", find_max_recursive(head));
+    printf("searching a linked list: %d \n", search(head, 21));
 
     return 0;
 }
