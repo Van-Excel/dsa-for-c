@@ -257,9 +257,18 @@ int search(struct Node* p, int key){
     }
     printf("Key not found\n");
     return key;
-    
-    
 
+}
+
+struct Node* recursive_search(struct Node* p, int key){
+    if (p == NULL){
+        return NULL;
+    }
+    if (p-> data == key){
+        return p;
+    }
+
+    return recursive_search(p->next, key);
 }
 
 
@@ -282,6 +291,7 @@ int main()
     printf("the highest value in the node is: %d \n", find_max_value(head));
     printf("the highest value in the node using recursion is: %d \n", find_max_recursive(head));
     printf("searching a linked list: %d \n", search(head, 21));
+    printf("searching a linked list recursively: %p\n", recursive_search(head, 21));
 
     return 0;
 }

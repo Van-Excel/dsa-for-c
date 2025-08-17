@@ -2,10 +2,13 @@
 
 
   /* function declaration with prototype*/
+  // declaration is the return type and name of the function
+  // prototype is the parameters and their type
 int function_1(int x, int y);
 
 
 /* function_1 definition*/
+// definition is the implementation 
 
 int function_1(int x, int y){
     printf("values passed to the function_1 are: %d and %d \n", x, y);
