@@ -94,6 +94,9 @@ int main(){
         /* code */
       } while (counter < 10);
       
+
+    //   ptr[i] means *(ptr + i)
+
       
 
 

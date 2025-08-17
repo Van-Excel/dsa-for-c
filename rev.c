@@ -24,6 +24,7 @@ int main()
 
     int x = 9;
     int* ptrtoint = &x;
+    // *ptrtoint = 23; this is allowed. you can deference the pointer and overwrite the value
     printf("value in ptrtoint: %p\n", ptrtoint);
     printf("The value in x is: %d\n", *ptrtoint);
     printf("left value of x is: : %p and the right value of x is: %d\n", ptrtoint, *ptrtoint);
@@ -60,11 +61,29 @@ int main()
 
 
     int arr[]={1,3,5,6,7};
-    int* integerPointer = arr;
+    int* integerPointer = arr; // decays to &arr[0]
 
     printf("The address of the first element in the array arr is: %p\n",(void*)integerPointer);
     // when you pass the name of an array to a function or pointer variable, you assign the address
     // of the first element in the array to the pointer variable or function
+    //   ptr[i] means *(ptr + i)
+    // int* ptr = arr means int* ptr = &arr[0]
+
+    //these notations are the same
+
+    // int *pv = (int*) malloc(5 * sizeof(int));
+    // for(int i=0; i<5; i++) {
+    // pv[i] = i+1;
+    // }
+
+    // for(int i=0; i<5; i++) {
+    // *(pv+i) = i+1;
+    // }
+
+
+
+
+
     processArray(arr, 5);
 
 
@@ -102,6 +121,14 @@ int main()
         //printf( "%c\n", array_ch[e]);
         // error printed emojis?
     }
+
+
+
+    // pv[i]  ≡  *(pv + i) 
+    // its just syntactic sugar
+    // pv + i gives you the address
+    // *(pv + i) dereferences that address to get the value
+    // pv[i] is just syntactic sugar for *(pv + i)
 
 
 
