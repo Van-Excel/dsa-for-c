@@ -84,6 +84,10 @@ int main(){
     //   }
 
       // do while loop
+      // do or execute a block of statement then check the while condition
+      // if condition evaluates to 1 or logical true, run statement block again
+      // if it evaluates to 0 or logical false, move out of loop and continue to the next statement
+
       int counter = 4;
 
       do
@@ -96,6 +100,15 @@ int main(){
       
 
     //   ptr[i] means *(ptr + i)
+
+    // print the hex and decimal versions of numbers 1 to 6
+
+    int bytenumber;
+    printf("Hexadecimal   Decimal\n");
+    for(bytenumber=1; bytenumber < 20; bytenumber++){
+        printf("%x              %d\n", bytenumber, bytenumber);
+
+    }
 
       
 
