@@ -150,6 +150,45 @@ int main()
     // a str variable holds the address to the first character in the character array?
     // null pointers
 
+    // string functions and methods
+    // strcpy() and strncpy()
+
+    // char str[] = "Hello";       // stack array (modifiable)
+    // char *dyn = malloc(6);      // heap allocation
+    // strcpy(dyn, "Hello");       // copy literal → now modifiable
+    // *(dyn + 0) = 'Y';           // ✅ "Yello"
+
+    // char str[] = "Hello";
+    // This creates an array of characters big enough to hold "Hello" plus the null terminator ('\0').
+
+    // So the compiler makes it:
+
+    // 'H'  'e'  'l'  'l'  'o'  '\0'
+    // Here, you can modify the characters if you want:
+
+    // str[0] = 'Y';   // str becomes "Yello"
+    // 2. Assigning to a char pointer
+
+    // char *str = "Hello";
+    // Here, str points to a string literal stored in read-only memory.
+
+    // You must not modify it (doing so causes undefined behavior):
+
+    // str[0] = 'Y';   // ❌ may crash program
+    // This is fine if you only need to read the string.
+    // ✅ Rule of thumb:
+
+    // If you want a string you can modify → declare an array (char str[] = "...").
+
+    // If you only need a read-only reference to a string constant → use a pointer (char *str = "...").
+
+    // ⚡ If you want both pointer arithmetic convenience and writable memory, you should explicitly allocate or declare an array:
+
+    // char str[] = "Hello";       // stack array (modifiable)
+    // char *dyn = malloc(6);      // heap allocation
+    // strcpy(dyn, "Hello");       // copy literal → now modifiable
+    // *(dyn + 0) = 'Y';           // ✅ "Yello"
+
 
     return 0;
 
