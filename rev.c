@@ -151,7 +151,7 @@ int main()
     // null pointers
 
     // string functions and methods
-    // strcpy() and strncpy()
+    // strcpy() and strncpy() strlcpy()
 
     // char str[] = "Hello";       // stack array (modifiable)
     // char *dyn = malloc(6);      // heap allocation
