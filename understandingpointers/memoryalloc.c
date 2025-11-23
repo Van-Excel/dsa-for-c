@@ -8,6 +8,9 @@ int main(){
     //realloc
     //calloc
     //free
+    // memset
+    // memory alignment - what multiples of bytes to allocate
+    // memory allocated will be aligned according to the pointer’s data type.
 
     int *ptr = (int*) malloc(sizeof(int));
     if (ptr != NULL){
@@ -32,6 +35,36 @@ int main(){
         printf("\n");
     }
     free(name);
+
+    // memory alignment - what multiples of bytes to allocate
+    int *ptrtoInteger = malloc(10 * sizeof(int));
+    if (ptrtoInteger != NULL){
+        *ptrtoInteger = 45;
+        ptrtoInteger[1]= 23;
+    }
+    printf("value 1 is: %d", ptrtoInteger[0]);
+    printf("\n");
+    printf("value 1 is: %d\n", ptrtoInteger[1]);
+
+    free(ptrtoInteger);
+
+    // calloc
+    // no need to use free()
+    // originally used to allocate memory for arrays
+    // takes 2 args- number of elements and size of element
+
+
+    char *arrayPointer = calloc(10, 1);
+    if (arrayPointer != NULL){
+        arrayPointer[0] = 'k';
+    }
+    printf("first element in memory pointed to by arrayPointer is:%c", arrayPointer[0]);
+    
+
+    // you can use memset and malloc to achieve the same results as calloc
+    // write an implementation of memset
+    // can it be used for structs and how would implementation look like?
+
     
     
   
